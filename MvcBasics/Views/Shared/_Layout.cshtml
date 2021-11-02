@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Sara Stjernberg</h1>
+            <h2>Web developer</h2>
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-action="Index" asp-controller="Home">About me</a>
+                </li>
+                <li>
+                    <a asp-action="Projects" asp-controller="Home">Projects</a>
+                </li>
+                <li>
+                    <a asp-action="Contact" asp-controller="Home">Contact me</a>
+                </li>
+                <li>
+                    @Html.ActionLink("Doctor Page", "Index", "Doctor")
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
