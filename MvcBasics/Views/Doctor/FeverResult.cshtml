@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Fever-result";
+}
+
+<main>
+    <h1>Fever result</h1>
+
+
+    @if (ViewBag.temp != null)
+    {
+        <p>Your temperature is @ViewBag.temp</p>
+        <p>@ViewBag.message</p>
+
+    }
+
+
+</main>
+

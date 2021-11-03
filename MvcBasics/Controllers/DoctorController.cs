@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MvcBasics.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,20 @@ namespace MvcBasics.Controllers
 {
     public class DoctorController : Controller
     {
-        public IActionResult Index()
+        [HttpGet]
+        public IActionResult CheckFever()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult CheckFever(float temperature)
+        {
+            string message = "";
+            message = CheckFeverUtility.FeverCheck(temperature);
+            ViewBag.temp = temperature;
+            ViewBag.message = message;
+            return View("FeverResult");
         }
     }
 }

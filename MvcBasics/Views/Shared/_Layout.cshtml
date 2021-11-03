@@ -22,9 +22,12 @@
                 </li>
                 <li>
                     <a asp-action="Contact" asp-controller="Home">Contact me</a>
+                    @*@html.actionlink("contact", "contact", "home")*@
+
                 </li>
                 <li>
-                    @Html.ActionLink("Doctor Page", "Index", "Doctor")
+                    <a asp-action="CheckFever" asp-controller="Doctor">Fever check</a>
+                    @*@Html.ActionLink("Fever check", "Index", "Doctor")*@
                 </li>
 
             </ul>
