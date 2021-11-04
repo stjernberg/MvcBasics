@@ -9,8 +9,11 @@
 
     @if (ViewBag.temp != null)
     {
-        <p>Your temperature is @ViewBag.temp</p>
+        <p>Your temperature is @ViewBag.temp degrees @ViewBag.type</p>
         <p>@ViewBag.message</p>
+        <div class="button">
+            <a asp-controller="Doctor" asp-action="CheckFever">Check again</a>
+        </div>
 
     }
 

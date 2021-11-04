@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
@@ -21,13 +22,13 @@
                     <a asp-action="Projects" asp-controller="Home">Projects</a>
                 </li>
                 <li>
+                    <a asp-action="CV" asp-controller="Home">CV</a>
+                </li>
+                <li>
                     <a asp-action="Contact" asp-controller="Home">Contact me</a>
-                    @*@html.actionlink("contact", "contact", "home")*@
-
                 </li>
                 <li>
                     <a asp-action="CheckFever" asp-controller="Doctor">Fever check</a>
-                    @*@Html.ActionLink("Fever check", "Index", "Doctor")*@
                 </li>
 
             </ul>
@@ -36,5 +37,10 @@
     <div>
         @RenderBody()
     </div>
+    <footer>
+        <p>&copy; Sara Stjernberg</p>
+        
+
+    </footer>
 </body>
 </html>

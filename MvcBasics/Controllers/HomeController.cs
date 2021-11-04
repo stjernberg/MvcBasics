@@ -12,7 +12,7 @@ namespace MvcBasics.Controllers
         {
             return View();
         }
-        public IActionResult About()
+        public IActionResult CV()
         {
             return View();
         }

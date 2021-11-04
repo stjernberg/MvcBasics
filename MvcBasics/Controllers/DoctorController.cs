@@ -16,12 +16,13 @@ namespace MvcBasics.Controllers
         }
 
         [HttpPost]
-        public IActionResult CheckFever(float temperature)
+        public IActionResult CheckFever(float temperature, string tempType)
         {
             string message = "";
-            message = CheckFeverUtility.FeverCheck(temperature);
+            message = CheckFeverUtility.FeverCheck(temperature, tempType);
             ViewBag.temp = temperature;
             ViewBag.message = message;
+            ViewBag.type = tempType;
             return View("FeverResult");
         }
     }

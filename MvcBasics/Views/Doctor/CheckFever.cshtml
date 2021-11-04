@@ -4,11 +4,26 @@
 }
 
 <main>
-<h1>Check if you have fever</h1>
+<h1>Check if you have a fever</h1>
 
 <form method="post">
-    <label for="temperature">Temperature:</label>
-    <input type="number" id="temperature" name="temperature"/>
+    <div>
+        <label for="Celsius">Celsius</label>
+        <input checked="checked"
+               id="tempType"
+               name="tempType"
+               type="radio"
+               value="Celsius" />
+        <label for="Fahrenheit">Fahrenheit</label>
+        <input id="tempType"
+               name="tempType"
+               type="radio"
+               value="Fahrenheit" />
+    </div>
+    <div>
+        <label for="temperature">Temperature:</label>
+        <input type="number" id="temperature" name="temperature" />
+    </div>
     <button>Check</button>
 </form>
 </main>

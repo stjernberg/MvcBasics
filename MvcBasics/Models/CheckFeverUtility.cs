@@ -7,18 +7,48 @@ namespace MvcBasics.Models
 {
     public class CheckFeverUtility
     {
-        public static string FeverCheck(float temperature)
+        public static string FeverCheck(float temperature, string tempType)
         {
+
             string message = "";
-            if (temperature >= 38)
+
+            if (tempType == "Celsius")
             {
-                message = "You have a fever";
+                if (temperature >= 38)
+                {
+                    message = "You have a fever.";
+                }
+
+                else if (temperature < 35)
+                {
+                    message = "You have hypothermia.";
+                }
+
+                else
+                {
+                    message = "You don't have a fever.";
+                }
+
             }
 
-            else
+            else if (tempType == "Fahrenheit")
             {
-                message = "You don't have a fever";
+                if(temperature >= 100.4)
+                {
+                    message = "You have a fever.";
+                }
+
+                else if (temperature < 95)
+                {
+                    message = "You have hypothermia.";
+                }
+
+                else
+                {
+                    message = "You don't have a fever.";
+                }
             }
+
 
             return message;
         }
