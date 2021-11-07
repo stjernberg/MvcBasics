@@ -19,7 +19,7 @@ namespace MvcBasics.Controllers
         public IActionResult CheckFever(float temperature, string tempType)
         {
             string message = "";
-            message = CheckFeverUtility.FeverCheck(temperature, tempType);
+            message = Doctor.FeverCheck(temperature, tempType);
             ViewBag.temp = temperature;
             ViewBag.message = message;
             ViewBag.type = tempType;

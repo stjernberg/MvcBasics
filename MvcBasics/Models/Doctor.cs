@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MvcBasics.Models
 {
-    public class CheckFeverUtility
+    public class Doctor
     {
         public static string FeverCheck(float temperature, string tempType)
         {
