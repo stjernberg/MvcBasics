@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "WinMessage";
 }
 
@@ -8,10 +7,15 @@
     {
         <h2>Congratulations!</h2>
 
-        <p> Your guess on number @ViewBag.guess was correct. You nailed it on @ViewBag.nrOfGuesses attempts.</p>
+        <p> Your guess on number @ViewBag.guess was correct. </p>
+   
+        @if ( ViewBag.guessesCookie != null)
+        {
+            <p>You nailed it on @ViewBag.nrOfGuesses attempts.</p>
+        }
         <div class="button">
             <a asp-controller="Game" asp-action="GuessingGame">Play again</a>
         </div>
     }
-    </main>
+</main>
 

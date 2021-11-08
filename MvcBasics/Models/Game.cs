@@ -21,7 +21,7 @@ namespace MvcBasics.Models
                 return $"Nr {guess} is too low, please try again!";
             }
 
-
+           
             return "correct";
         }
 
