@@ -49,7 +49,7 @@ namespace MvcBasics
 
                 endpoints.MapControllerRoute(
                    name: "game",
-                   pattern: "/guessingGame",
+                   pattern: "/GuessingGame",
                    defaults: new { controller = "Game", action = "GuessingGame" }
                );
 
