@@ -16,12 +16,12 @@ namespace MvcBasics.Models
             {
                 if (temperature >= 38)
                 {
-                    message = "You have a fever.";
+                    message = "You have a fever!";
                 }
 
                 else if (temperature < 35)
                 {
-                    message = "You have hypothermia.";
+                    message = "You have hypothermia!";
                 }
 
                 else
@@ -35,12 +35,12 @@ namespace MvcBasics.Models
             {
                 if(temperature >= 100.4)
                 {
-                    message = "You have a fever.";
+                    message = "You have a fever!";
                 }
 
                 else if (temperature < 95)
                 {
-                    message = "You have hypothermia.";
+                    message = "You have hypothermia!";
                 }
 
                 else

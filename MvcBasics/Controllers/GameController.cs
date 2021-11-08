@@ -14,7 +14,12 @@ namespace MvcBasics.Controllers
         public IActionResult GuessingGame()
         {
             Random random = new Random();
-            HttpContext.Session.SetInt32("Number", random.Next(1, 100));
+
+            if (!string.IsNullOrWhiteSpace(random.ToString()))
+            {
+                HttpContext.Session.SetInt32("Number", random.Next(1, 100));
+            }
+
             CookieOptions option = new CookieOptions();
             option.Expires = DateTime.Now.AddHours(1);
             Response.Cookies.Append("CountGuesses", "0", option);
@@ -25,17 +30,15 @@ namespace MvcBasics.Controllers
         {
             string message = "";
             int nrOfGuesses = 0;
-           
 
-            if (guess > 0) 
+
+            if (guess > 0 || guess <= 100)
             {
 
-                int number = (int)HttpContext.Session.GetInt32("Number");                
-                string nrOfGuessesStored = Request.Cookies["CountGuesses"];                
+                int number = (int)HttpContext.Session.GetInt32("Number");
+                string nrOfGuessesStored = Request.Cookies["CountGuesses"];
                 nrOfGuesses = Int32.Parse(nrOfGuessesStored) + 1;
-                message = Game.GuessNumber(guess, number);                
-                //used for testing purpose
-                //ViewBag.nr = number;
+                message = Game.GuessNumber(guess, number);
             }
 
             else
@@ -43,16 +46,20 @@ namespace MvcBasics.Controllers
                 message = "You must enter a number beween 1-100!";
             }
 
+            if (!string.IsNullOrWhiteSpace(nrOfGuesses.ToString()))
+            {
+                CookieOptions option = new CookieOptions();
+                option.Expires = DateTime.Now.AddMinutes(10);
+                Response.Cookies.Append("CountGuesses", nrOfGuesses.ToString(), option);
+            }
 
-            CookieOptions option = new CookieOptions();
-            option.Expires = DateTime.Now.AddMinutes(10);
-            Response.Cookies.Append("CountGuesses", nrOfGuesses.ToString(), option);
-
+            
             ViewBag.guess = guess;
             ViewBag.nrOfGuesses = nrOfGuesses;
             ViewBag.msg = message;
 
-            if (message.Contains("correct")){
+            if (message.Contains("correct"))
+            {
                 return View("WinMessage");
             }
 
@@ -60,7 +67,7 @@ namespace MvcBasics.Controllers
             {
                 return View();
             }
-                       
+
         }
     }
 }
