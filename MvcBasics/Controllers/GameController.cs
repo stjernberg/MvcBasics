@@ -29,20 +29,24 @@ namespace MvcBasics.Controllers
 
             if (guess > 0 || guess <= 100)
             {
-               
-                 int number = (int)HttpContext.Session.GetInt32("Number");
+
+                int number = (int)HttpContext.Session.GetInt32("Number");
                 if (!string.IsNullOrWhiteSpace(number.ToString()))
                 {
                     string nrOfGuessesStored = Request.Cookies["CountGuesses"];
                     nrOfGuesses = Int32.Parse(nrOfGuessesStored) + 1;
-                    ViewBag.guessesCookie = nrOfGuessesStored;
+                    if (Request.Cookies["CountGuesses"] != null)
+                    {
+                        ViewBag.guessesCookie = nrOfGuessesStored;
+                    }
+
                     message = Game.GuessNumber(guess, number);
                 }
                 else
                 {
                     return RedirectToAction(nameof(GuessingGame));
                 }
-                             
+
             }
 
             else
@@ -59,7 +63,7 @@ namespace MvcBasics.Controllers
 
             ViewBag.guess = guess;
             ViewBag.nrOfGuesses = nrOfGuesses;
-            ViewBag.msg = message;          
+            ViewBag.msg = message;
 
 
             if (message.Contains("correct"))
